@@ -41,4 +41,5 @@ public class ExerciseService {
         //TODO: Implement RandomClusterGenerator
         return new Cluster(Arrays.asList(new Integer[]{1,2,3}),8);
     }
+
 }

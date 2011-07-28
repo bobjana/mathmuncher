@@ -1,0 +1,6 @@
+<anthropodExerciseResult xmlns="http://mathmucher.co.za/ws/schemas/ex" type="MULTIPLICATION">
+    <anthropodResult modifier="5" timeSpent="123" result="45"/>
+    <anthropodResult modifier="6" timeSpent="123" result="45"/>
+    <anthropodResult modifier="2" timeSpent="123" result="45"/>
+    <anthropodResult modifier="8" timeSpent="123" result="45"/>
+</anthropodExerciseResult>

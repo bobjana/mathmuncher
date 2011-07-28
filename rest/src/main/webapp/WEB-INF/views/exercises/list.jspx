@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_mathmuncher_Exercise" items="${exercises}" z="jHkCVNrPTtjY95Gx+sBqe1Xr7xc=">
+        <table:table data="${exercises}" id="l_com_mathmuncher_Exercise" path="/exercises" z="htWdSgDPQ0eaRqoLKX85ppIU2+g=">
+            <table:column date="true" dateTimePattern="${exercise_startdate_date_format}" id="c_com_mathmuncher_Exercise_startDate" property="startDate" z="3dpGKMnrtqyEvGzErvUhZLxHrJ8="/>
+            <table:column date="true" dateTimePattern="${exercise_enddate_date_format}" id="c_com_mathmuncher_Exercise_endDate" property="endDate" z="mNVaaTlU/kewUJGWXGVSFlqFWKE="/>
+            <table:column id="c_com_mathmuncher_Exercise_score" property="score" z="pXw/ZHvAqSBxfeK5DIb6hVx2wwk="/>
+        </table:table>
+    </page:list>
+</div>

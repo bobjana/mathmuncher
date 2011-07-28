@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_mathmuncher_Exercise" modelAttribute="exercise" path="/exercises" versionField="Version" z="ZBBioxSLErJavsbdthrPef5a6iU=">
+        <field:datetime dateTimePattern="${exercise_startdate_date_format}" field="startDate" id="c_com_mathmuncher_Exercise_startDate" z="3xTM1VkCvaztvaZl2azqbDVJb4Q="/>
+        <field:datetime dateTimePattern="${exercise_enddate_date_format}" field="endDate" id="c_com_mathmuncher_Exercise_endDate" z="c8AHqYnB/ZZ4NcAUZYc66nsnG4U="/>
+        <field:input field="score" id="c_com_mathmuncher_Exercise_score" z="K4Lybyo22DBSgQnyKvk6h8OclJk="/>
+    </form:update>
+</div>

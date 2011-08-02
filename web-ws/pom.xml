@@ -52,7 +52,7 @@
                     <stopPort>8005</stopPort>
                     <stopKey>STOP</stopKey>
                     <webAppConfig>
-                        <contextPath>/mathmuncher</contextPath>
+                        <contextPath>/</contextPath>
                     </webAppConfig>
                 </configuration>
             </plugin>

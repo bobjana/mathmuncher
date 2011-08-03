@@ -13,26 +13,22 @@
         </restriction>
     </simpleType>
 
+    <element name="anthropodExerciseRequest" tns:maxOccurs="1" tns:minOccurs="0">
+        <complexType>
+            <attribute name="type" type="tns:exerciseType"/>
+        </complexType>
+    </element>
+
     <element name="anthropodExerciseResponse" tns:maxOccurs="1" tns:minOccurs="0">
         <complexType>
             <sequence>
                 <element name="anthropod" maxOccurs="unbounded" minOccurs="0">
                     <complexType>
-                        <simpleContent>
-                            <extension base="string">
-                                <attribute type="int" name="body" use="required"/>
-                                <attribute type="string" name="legs" use="required"/>
-                            </extension>
-                        </simpleContent>
+                        <attribute type="int" name="body" use="required"/>
+                        <attribute type="string" name="legs" use="required"/>
                     </complexType>
                 </element>
             </sequence>
-            <attribute name="type" type="tns:exerciseType"/>
-        </complexType>
-    </element>
-
-    <element name="anthropodExerciseRequest" tns:maxOccurs="1" tns:minOccurs="0">
-        <complexType>
             <attribute name="type" type="tns:exerciseType"/>
         </complexType>
     </element>

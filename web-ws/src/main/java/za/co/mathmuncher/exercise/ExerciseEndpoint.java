@@ -5,8 +5,6 @@ import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
-import za.co.mathmuncher.domain.AnthropodExerciseRequest;
-import za.co.mathmuncher.domain.AnthropodExerciseResponse;
 
 @Endpoint
 public class ExerciseEndpoint {
@@ -18,7 +16,7 @@ public class ExerciseEndpoint {
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "anthropodExerciseRequest")
     public @ResponsePayload
-    AnthropodExerciseResponse handlAnthropodExerciseRequest(@RequestPayload AnthropodExerciseRequest anthropodExerciseRequest)
+    AnthropodExercise handlAnthropodExerciseRequest(@RequestPayload AnthropodExerciseRequest anthropodExerciseRequest)
         throws Exception {
         return exerciseService.generateAnthropodExercise(anthropodExerciseRequest.getType());
     }

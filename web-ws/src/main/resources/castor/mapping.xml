@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping>
+
+    <class name="za.co.mathmuncher.exercise.AnthropodExerciseRequest">
+        <map-to xml="anthropodExerciseRequest" ns-uri="http://mathmuncher.co.za/ws/schemas/ex"/>
+        <field name="type" type="za.co.mathmuncher.exercise.ExerciseType">
+            <bind-xml name="type" node="attribute"/>
+        </field>
+    </class>
+
+    <class name="za.co.mathmuncher.exercise.ExerciseType" verify-constructable="false">
+        <map-to xml="exerciseType" ns-uri="http://mathmuncher.co.za/ws/schemas/ex"/>
+    </class>
+
+    <class name="za.co.mathmuncher.exercise.AnthropodExercise">
+        <map-to xml="anthropodExerciseReponse" ns-uri="http://mathmuncher.co.za/ws/schemas/ex"/>
+        <field name="type" type="za.co.mathmuncher.exercise.ExerciseType">
+            <bind-xml name="type" node="attribute"/>
+        </field>
+       <field name="anthropods" type="za.co.mathmuncher.exercise.AnthropodExercise$Anthropod" collection="arraylist">
+            <bind-xml name="anthropod" node="element"/>
+        </field>
+    </class>
+
+    <class name="za.co.mathmuncher.exercise.AnthropodExercise$Anthropod">
+        <field name="body" type="int">
+            <bind-xml name="body" node="attribute"/>
+        </field>
+        <field name="legs" type="string">
+            <bind-xml name="legs" node="attribute"/>
+        </field>
+    </class>
+
+</mapping>

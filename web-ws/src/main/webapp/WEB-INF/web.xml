@@ -17,7 +17,6 @@
             <param-name>transformWsdlLocations</param-name>
             <param-value>true</param-value>
         </init-param>
-
     </servlet>
 
     <servlet-mapping>

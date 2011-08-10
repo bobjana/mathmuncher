@@ -5,13 +5,11 @@ import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
-import za.co.mathmuncher.domain.AnthropodExerciseRequest;
-import za.co.mathmuncher.domain.AnthropodExerciseResponse;
 
 @Endpoint
 public class ExerciseEndpoint {
 
-    private static final String NAMESPACE_URI = "http://mathmuncher.co.za/ws/schemas/ex";
+    private static final String NAMESPACE_URI = "http://mathmuncher.co.za/ws/schemas/ox";
 
     @Autowired
     private ExerciseService exerciseService;

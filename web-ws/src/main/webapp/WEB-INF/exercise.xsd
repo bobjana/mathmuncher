@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema"
         attributeFormDefault="qualified" elementFormDefault="qualified"
-        targetNamespace="http://mathmuncher.co.za/ws/schemas/ex"
-        xmlns:tns="http://mathmuncher.co.za/ws/schemas/ex">
+        targetNamespace="http://mathmuncher.co.za/ws/schemas/ox"
+        xmlns:tns="http://mathmuncher.co.za/ws/schemas/ox">
 
     <simpleType name="exerciseType" tns:maxOccurs="1" tns:minOccurs="1">
         <restriction base="string">
@@ -27,13 +27,13 @@
                     </complexType>
                 </element>
             </sequence>
-            <attribute name="type" type="tns:exerciseType"/>
+            <attribute name="type" type="tns:exerciseType" use="required"/>
         </complexType>
     </element>
 
-    <element name="anthropodExerciseRequest" tns:maxOccurs="1" tns:minOccurs="0">
+    <element name="anthropodExerciseRequest" tns:maxOccurs="1" tns:minOccurs="1">
         <complexType>
-            <attribute name="type" type="tns:exerciseType"/>
+            <attribute name="type" type="tns:exerciseType" use="required"/>
         </complexType>
     </element>
 

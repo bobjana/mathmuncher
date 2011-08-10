@@ -1,0 +1,6 @@
+<anthropodExerciseReponse xmlns="http://mathmuncher.co.za/ws/schemas/ex" type="MULTIPLICATION">
+    <anthropod body="3" legs="[2,1,5,9,6]"/>
+    <anthropod body="5" legs="[2,3,4,5,6]"/>
+    <anthropod body="6" legs="[9,8,7,6,5]"/>
+    <anthropod body="7" legs="[2,4,6,8,9]"/>
+</anthropodExerciseReponse>

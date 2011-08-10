@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
        xmlns:sws="http://www.springframework.org/schema/web-services"
+       xmlns:oxm="http://www.springframework.org/schema/oxm"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-        http://www.springframework.org/schema/web-services
-        http://www.springframework.org/schema/web-services/web-services.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+       xsi:schemaLocation=
+               "http://www.springframework.org/schema/beans
+       				http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       	 			http://www.springframework.org/schema/web-services
+       				http://www.springframework.org/schema/web-services/web-services-2.0.xsd
+       				http://www.springframework.org/schema/oxm
+       				http://www.springframework.org/schema/oxm/spring-oxm-1.5.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <description>
-        This web application context contains Spring-WS beans.
-    </description>
+    <import resource="classpath:META-INF/spring/oxm-config.xml"/>
 
     <context:annotation-config />
 
@@ -39,7 +42,7 @@
         <bean id="validatingInterceptor"
               class="org.springframework.ws.soap.server.endpoint.interceptor.PayloadValidatingInterceptor">
             <property name="schema" value="/WEB-INF/exercise.xsd"/>
-            <property name="validateRequest" value="true"/>
+            <property name="validateRequest" value="false"/>
             <property name="validateResponse" value="true"/>
         </bean>
         <bean id="loggingInterceptor" class="org.springframework.ws.server.endpoint.interceptor.PayloadLoggingInterceptor"/>
@@ -47,8 +50,8 @@
 
     <sws:dynamic-wsdl id="exercise"
                       portTypeName="ExercisePort"
-                      locationUri="/ws/exercise"
-                      targetNamespace="http://mathmuncher.co.za/ws/schemas/ex">
+                      locationUri="/mathmuncher/ws"
+                      targetNamespace="http://mathmuncher.co.za/ws/schemas/ox">
         <sws:xsd location="/WEB-INF/exercise.xsd"/>
     </sws:dynamic-wsdl>
 
@@ -68,25 +71,10 @@
     <!--Pluggable marshallers / unmarshallers-->
     <bean id="marshallingPayloadMethodProcessor"
           class="org.springframework.ws.server.endpoint.adapter.method.MarshallingPayloadMethodProcessor">
-        <constructor-arg ref="jaxbMarshaller"/>
-        <constructor-arg ref="jaxbMarshaller"/>
-    </bean>
-
-    <!-- uses JAXB annotations to marshall between XML messages and Java objects -->
-    <bean id="jaxbMarshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
-        <property name="classesToBeBound">
-            <list>
-                <value>za.co.mathmuncher.domain.AnthropodExerciseResponse</value>
-                <value>za.co.mathmuncher.domain.AnthropodExerciseRequest</value>
-                <!--<value>za.co.mathmuncher.domain.AnthropodExerciseResult</value>-->
-            </list>
-        </property>
+        <constructor-arg ref="castorMarshaller"/>
+        <constructor-arg ref="castorMarshaller"/>
     </bean>
 
 </beans>
 
 
-            <!--&lt;!&ndash;  Our mashaller. You can use any marshaller you want.-->
-    <!--For info on how to use Castor, see http://www.castor.org/xml-mapping.html#2.1-Marshalling-Behavior &ndash;&gt;-->
-    <!--<bean id="castorMarshaller" class="org.springframework.oxm.castor.CastorMarshaller"-->
-    <!--p:mappingLocation="/WEB-INF/castor-mapping.xml" />-->

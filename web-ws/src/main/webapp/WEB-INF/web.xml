@@ -3,21 +3,19 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
          version="2.4">
 
-    <display-name>MathMuncher WS Web</display-name>
+    <display-name>MathMuncher Soap WebService</display-name>
 
     <servlet>
-        <servlet-name>ws-config</servlet-name>
+        <servlet-name>spring</servlet-name>
         <servlet-class>org.springframework.ws.transport.http.MessageDispatcherServlet</servlet-class>
         <init-param>
             <param-name>transformWsdlLocations</param-name>
             <param-value>true</param-value>
         </init-param>
-		
-		<load-on-startup>1</load-on-startup>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>ws-config</servlet-name>
+        <servlet-name>spring</servlet-name>
         <url-pattern>/mathmuncher/*</url-pattern>
     </servlet-mapping>
 

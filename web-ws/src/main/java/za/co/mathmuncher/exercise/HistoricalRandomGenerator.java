@@ -26,13 +26,6 @@ public class HistoricalRandomGenerator {
             //Obtain latest half of previous numbers
             if (sizeOfHistory >= 2) {
                 sizeOfHistory = new Double(Math.round(new Double(sizeOfHistory) / 2)).intValue();
-//                if (start > 0) {
-//                    //Round-up
-//                    sizeOfHistory = new Double(Math.round(new Double(sizeOfHistory) / 2)).intValue();
-//                } else {
-//                    //ABS
-//                    sizeOfHistory = new Double(new Double(sizeOfHistory) / 2).intValue();
-//                }
             }
             generated = obtainRandomNumber(start, end, getLatest(previousNumbers, sizeOfHistory));
         }

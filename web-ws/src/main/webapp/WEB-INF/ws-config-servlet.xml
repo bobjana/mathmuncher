@@ -50,8 +50,8 @@
 
     <sws:dynamic-wsdl id="exercise"
                       portTypeName="ExercisePort"
-                      locationUri="/mathmuncher/ws"
-                      targetNamespace="http://mathmuncher.co.za/ws/schemas/ox">
+                      locationUri="/mathmuncher/ws/exercise"
+                      targetNamespace="http://mathmuncher.co.za/ws/schemas/ex">
         <sws:xsd location="/WEB-INF/exercise.xsd"/>
     </sws:dynamic-wsdl>
 

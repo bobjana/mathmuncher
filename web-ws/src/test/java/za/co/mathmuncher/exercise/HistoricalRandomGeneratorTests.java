@@ -50,4 +50,44 @@ public class HistoricalRandomGeneratorTests {
     }
 
 
+    @Test
+    public void testGenerate_AnyName_EmptyHistory() throws Exception {
+        //GIVEN
+        HistoricalRandomGenerator generator = new HistoricalRandomGenerator();
+        //WHEN
+        String result = generator.generate(new String[]{"A","B"}, Arrays.asList(new String[]{}));
+        //THEN
+        assertTrue(result.equals("A") || result.equals("B"));
+    }
+
+    @Test
+    public void testGenerate_Only1NameLeft() throws Exception {
+        //GIVEN
+        HistoricalRandomGenerator generator = new HistoricalRandomGenerator();
+        //WHEN
+        String result = generator.generate(new String[]{"A","B"}, Arrays.asList(new String[]{"B"}));
+        //THEN
+        assertEquals("A",result);
+    }
+
+    @Test
+    public void testGenerate_NameInBottom50percent() throws Exception {
+        //GIVEN
+        HistoricalRandomGenerator generator = new HistoricalRandomGenerator();
+        //WHEN
+        String result = generator.generate(new String[]{"A","B","C","D"}, Arrays.asList(new String[]{"A","B","C","D","A","B"}));
+        //THEN
+        assertTrue(result.equals("C") || result.equals("D"));
+    }
+
+    @Test
+    public void testGenerate_NameInBottom50percent_Only1NameLeftInBottom50percent() throws Exception {
+        //GIVEN
+        HistoricalRandomGenerator generator = new HistoricalRandomGenerator();
+        //WHEN
+        String result = generator.generate(new String[]{"A","B","C","D"}, Arrays.asList(new String[]{"A","B","C","D","A","B","C"}));
+        //THEN
+        assertEquals("D",result);
+    }
+
 }

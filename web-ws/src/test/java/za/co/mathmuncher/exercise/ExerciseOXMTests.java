@@ -21,7 +21,7 @@ import static junit.framework.Assert.assertTrue;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(value = "classpath:META-INF/spring/oxm-config.xml")
-public class AnthropodExerciseOXMTests {
+public class ExerciseOXMTests {
 
     private static final String REQUEST_TEMPLATE = "anthropodExerciseRequest.xml";
     private static final String RESPONSE_TEMPLATE = "anthropodExercise.xml";
@@ -32,7 +32,7 @@ public class AnthropodExerciseOXMTests {
     @Test
     public void marshallExerciseRequest() throws Exception {
         //GIVEN
-        AnthropodExerciseRequest request = new AnthropodExerciseRequest(ExerciseType.MULTIPLICATION);
+        ExerciseRequest request = new ExerciseRequest(ExerciseType.MULTIPLICATION);
         StringResult sr = new StringResult();
         //WHEN
         castorMarshaller.marshal(request, sr);
@@ -47,21 +47,21 @@ public class AnthropodExerciseOXMTests {
         //WHEN
         Object result = castorMarshaller.unmarshal(new StringSource(template));
         //THEN
-        assertTrue(result instanceof AnthropodExerciseRequest);
-        AnthropodExerciseRequest request = (AnthropodExerciseRequest) result;
+        assertTrue(result instanceof ExerciseRequest);
+        ExerciseRequest request = (ExerciseRequest) result;
         assertEquals(ExerciseType.MULTIPLICATION, request.getType());
     }
 
     @Test
     public void marshallExerciseResponse() throws Exception {
         //GIVEN
-        AnthropodExerciseResponse response = new AnthropodExerciseResponse();
+        ExerciseResponse response = new ExerciseResponse();
         response.setType(ExerciseType.MULTIPLICATION);
-        List<AnthropodExerciseResponse.Anthropod> anthropods = new ArrayList<AnthropodExerciseResponse.Anthropod>();
-        anthropods.add(createAnthropod(3,"[2,1,5,9,6]"));
-        anthropods.add(createAnthropod(5,"[2,3,4,5,6]"));
-        anthropods.add(createAnthropod(6,"[9,8,7,6,5]"));
-        anthropods.add(createAnthropod(7,"[2,4,6,8,9]"));
+        List<Anthropod> anthropods = new ArrayList<Anthropod>();
+        anthropods.add(createAnthropod("A",3,"[2,1,5,9,6]"));
+        anthropods.add(createAnthropod("B",5,"[2,3,4,5,6]"));
+        anthropods.add(createAnthropod("C",6,"[9,8,7,6,5]"));
+        anthropods.add(createAnthropod("D",7,"[2,4,6,8,9]"));
         response.setAnthropods(anthropods);
         StringResult sr = new StringResult();
         //WHEN
@@ -77,16 +77,17 @@ public class AnthropodExerciseOXMTests {
         //WHEN
         Object result = castorMarshaller.unmarshal(new StringSource(template));
         //THEN
-        assertTrue(result instanceof AnthropodExerciseResponse);
-        AnthropodExerciseResponse reponse = (AnthropodExerciseResponse) result;
+        assertTrue(result instanceof ExerciseResponse);
+        ExerciseResponse reponse = (ExerciseResponse) result;
         assertEquals(ExerciseType.MULTIPLICATION, reponse.getType());
         assertEquals(4, reponse.getAnthropods().size());
-        AnthropodExerciseResponse.Anthropod first = reponse.getAnthropods().get(0);
+        Anthropod first = reponse.getAnthropods().get(0);
         assertEquals(new Integer(3), new Integer(first.getBody()));
     }
 
-    private AnthropodExerciseResponse.Anthropod createAnthropod(int body, String legs) {
-        AnthropodExerciseResponse.Anthropod anthropod = new AnthropodExerciseResponse.Anthropod();
+    private Anthropod createAnthropod(String name, int body, String legs) {
+        Anthropod anthropod = new Anthropod();
+        anthropod.setName(name);
         anthropod.setBody(body);
         anthropod.setLegs(legs);
         return anthropod;

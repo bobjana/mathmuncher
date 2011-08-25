@@ -5,11 +5,6 @@
 
     <display-name>MathMuncher WS Web</display-name>
 
-    <!--<context-param>-->
-        <!--<param-name>contextConfigLocation</param-name>-->
-        <!--<param-value>classpath*:META-INF/spring/applicationContext*.xml</param-value>-->
-    <!--</context-param>-->
-
     <servlet>
         <servlet-name>ws-config</servlet-name>
         <servlet-class>org.springframework.ws.transport.http.MessageDispatcherServlet</servlet-class>

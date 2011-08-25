@@ -22,30 +22,28 @@ import static org.springframework.ws.test.server.RequestCreators.withPayload;
 import static org.springframework.ws.test.server.ResponseMatchers.payload;
 
 
-//@RunWith(org.springframework.test.context.junit4.SpringJUnit4ClassRunner.class)
-//@ContextConfiguration(inheritLocations = true, loader = MockServletContextWebContextLoader.class,
-//        locations = {"/WEB-INF/spring-servlet.xml"})
+@RunWith(org.springframework.test.context.junit4.SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = {"integration-context.xml"})
 public class ExcerciseEndpointIntegrationTests {
+
+
+    @Autowired
+    private ApplicationContext applicationContext;
+
+    private MockWebServiceClient mockClient;
+
+    @Before
+    public void createClient() {
+        mockClient = MockWebServiceClient.createClient(applicationContext);
+    }
 
     @Test
     public void testSomething(){
         assertTrue(true);
     }
-
-//    @Autowired
-//    private ApplicationContext applicationContext;
-//
-//    private MockWebServiceClient mockClient;
-//
-//    @Before
-//    public void createClient() {
-//        mockClient = MockWebServiceClient.createClient(applicationContext);
-//    }
-//
 //    @Test
 //    public void customerEndpoint() throws Exception {
-//        String resource = "anthropodExerciseRequest.xml";
-//        Source requestPayload = new StringSource(loadResource(resource));
+//        Source requestPayload = new StringSource(loadResource("anthropodExerciseRequest.xml"));
 //        Source responsePayload = new StringSource(
 //                "<customerCountResponse xmlns='http://springframework.org/spring-ws'>" +
 //                        "<customerCount>10</customerCount>" +
@@ -54,8 +52,8 @@ public class ExcerciseEndpointIntegrationTests {
 //        mockClient.sendRequest(withPayload(requestPayload)).
 //                andExpect(payload(responsePayload));
 //    }
-//
-//    private String loadResource(String resource) throws IOException {
-//        return FileUtils.readFileToString(new File(this.getClass().getResource(resource).getFile()));
-//    }
+
+    private String loadResource(String resource) throws IOException {
+        return FileUtils.readFileToString(new File(this.getClass().getResource(resource).getFile()));
+    }
 }

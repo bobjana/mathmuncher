@@ -17,20 +17,24 @@ public class ExerciseService {
         this.randomGenerator = historicalRandomGenerator;
     }
 
-    public AnthropodExerciseResponse generateAnthropodExercise(ExerciseType type) {
+    public ExerciseResponse generateAnthropodExercise(ExerciseType type) {
         //TODO: Grab settings from a config file for type and currently logged in user
         int numberOfLegs = 5;
         int numberOfQuestions = 4;
 
-        AnthropodExerciseResponse response = new AnthropodExerciseResponse();
+        ExerciseResponse response = new ExerciseResponse();
         response.setType(type);
         List<Integer> previousBodies = new ArrayList<Integer>();
+        List<String> previousNames = new ArrayList<String>();
         for (int i = 0; i < numberOfQuestions; i++){
-            AnthropodExerciseResponse.Anthropod anthropod = new AnthropodExerciseResponse.Anthropod();
+            Anthropod anthropod = new Anthropod();
             int body = randomGenerator.generate(2,12,previousBodies);
             previousBodies.add(body);
             anthropod.setBody(body);
             anthropod.setLegs(generateLegs(numberOfLegs));
+            String name = randomGenerator.generate(new String[]{"A","B","C","D"},previousNames);
+            previousNames.add(name);
+            anthropod.setName(name);
             response.getAnthropods().add(anthropod);
         }
         return response;

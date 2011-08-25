@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ex:anthropodExerciseRequest xmlns:ex="http://mathmuncher.co.za/ws/schemas/ex" ex:type="MULTIPLICATION"/>
+<anthropodExerciseRequest xmlns="http://mathmuncher.co.za/ws/schemas/ex" type="MULTIPLICATION"/>

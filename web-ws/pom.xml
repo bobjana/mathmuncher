@@ -12,37 +12,8 @@
     <artifactId>web-ws</artifactId>
     <packaging>war</packaging>
     <build>
-        <finalName>web-ws</finalName>
+        <finalName>mathmuncher</finalName>
         <plugins>
-            <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>tomcat-maven-plugin</artifactId>
-                <version>1.1</version>
-            </plugin>
-            <!--<plugin>-->
-            <!--<groupId>org.jvnet.jaxb2.maven2</groupId>-->
-            <!--<artifactId>maven-jaxb2-plugin</artifactId>-->
-            <!--<configuration>-->
-            <!--<generateDirectory>src/main/java</generateDirectory>-->
-            <!--<generatePackage>za.co.mathmuncher.domain</generatePackage>-->
-            <!--<schemaDirectory>src/main/webapp/WEB-INF</schemaDirectory>-->
-            <!--<specVersion>2.2</specVersion>-->
-            <!--</configuration>-->
-            <!--<executions>-->
-            <!--<execution>-->
-            <!--<goals>-->
-            <!--<goal>generate</goal>-->
-            <!--</goals>-->
-            <!--</execution>-->
-            <!--</executions>-->
-            <!--</plugin>-->
             <plugin>
                 <groupId>org.mortbay.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
@@ -59,13 +30,6 @@
         </plugins>
     </build>
     <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.8.1</version>
-            <type>jar</type>
-            <scope>compile</scope>
-        </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
@@ -85,13 +49,6 @@
                     <groupId>commons-logging</groupId>
                 </exclusion>
             </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.14</version>
-            <type>jar</type>
-            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>

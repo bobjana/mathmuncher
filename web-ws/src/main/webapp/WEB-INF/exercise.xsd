@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema"
         attributeFormDefault="qualified" elementFormDefault="qualified"
-        targetNamespace="http://mathmuncher.co.za/ws/schemas/ox"
-        xmlns:tns="http://mathmuncher.co.za/ws/schemas/ox">
+        targetNamespace="http://mathmuncher.co.za/ws/schemas/ex"
+        xmlns:tns="http://mathmuncher.co.za/ws/schemas/ex">
 
     <simpleType name="exerciseType" tns:maxOccurs="1" tns:minOccurs="1">
         <restriction base="string">
@@ -13,18 +13,21 @@
         </restriction>
     </simpleType>
 
-    <element name="anthropodExerciseResponse" tns:maxOccurs="1" tns:minOccurs="0">
+    <complexType name="anthropodType">
+        <simpleContent>
+            <extension base="string">
+                <attribute type="string" name="name" use="required"/>
+                <attribute type="int" name="body" use="required"/>
+                <attribute type="string" name="legs" use="required"/>
+            </extension>
+        </simpleContent>
+    </complexType>
+
+    <element name="exerciseResponse" tns:maxOccurs="1" tns:minOccurs="0">
         <complexType>
             <sequence>
-                <element name="anthropod" maxOccurs="unbounded" minOccurs="0">
-                    <complexType>
-                        <simpleContent>
-                            <extension base="string">
-                                <attribute type="int" name="body" use="required"/>
-                                <attribute type="string" name="legs" use="required"/>
-                            </extension>
-                        </simpleContent>
-                    </complexType>
+                <element name="anthropod" type="tns:anthropodType" maxOccurs="unbounded" minOccurs="0">
+
                 </element>
             </sequence>
             <attribute name="type" type="tns:exerciseType" use="required"/>
@@ -37,32 +40,5 @@
         </complexType>
     </element>
 
-    <!--<element name="anthropodExerciseResult" tns:maxOccurs="1" tns:minOccurs="0">-->
-    <!--<complexType>-->
-    <!--<sequence>-->
-    <!--<element name="anthropodResult" maxOccurs="unbounded" minOccurs="0">-->
-    <!--<complexType>-->
-    <!--<simpleContent>-->
-    <!--<extension base="string">-->
-    <!--<attribute type="string" name="modifier" use="optional"/>-->
-    <!--<attribute type="string" name="timeSpent" use="optional"/>-->
-    <!--<attribute type="string" name="result" use="optional"/>-->
-    <!--</extension>-->
-    <!--</simpleContent>-->
-    <!--</complexType>-->
-    <!--</element>-->
-    <!--</sequence>-->
-    <!--<attribute name="type">-->
-    <!--<simpleType>-->
-    <!--<restriction base="string">-->
-    <!--<enumeration value="MULTIPLICATION"/>-->
-    <!--<enumeration value="DIVISION"/>-->
-    <!--<enumeration value="ADDITION"/>-->
-    <!--<enumeration value="MINUS"/>-->
-    <!--</restriction>-->
-    <!--</simpleType>-->
-    <!--</attribute>-->
-    <!--</complexType>-->
-    <!--</element>-->
 
 </schema>

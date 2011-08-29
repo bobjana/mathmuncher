@@ -17,6 +17,9 @@ public class HistoricalRandomGenerator {
         assert end > start;
         assert end > 0;
         assert start >= 0;
+        if (previousNumbers == null){
+            previousNumbers = new ArrayList<Integer>();
+        }
         int sizeOfRange = end - start + 1;
         int sizeOfHistory = previousNumbers.size();
         int generated = -1;
@@ -33,6 +36,9 @@ public class HistoricalRandomGenerator {
     }
 
     public String generate(String[] range, List<String> previous) {
+        if (previous == null){
+            previous = new ArrayList<String>();
+        }
         List<Integer> previousNamesAsNumbers = convertPreviousNamesAsNumbers(range, previous);
         //Zero indexed, hence range.length-1
         int nameAsNumber = generate(0, range.length -1, previousNamesAsNumbers);

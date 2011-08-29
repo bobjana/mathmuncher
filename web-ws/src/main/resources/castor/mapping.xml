@@ -1,20 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mapping>
 
-    <class name="za.co.mathmuncher.exercise.ExerciseRequest">
+    <class name="za.co.mathmuncher.exercise.AnthropodExerciseRequest">
         <map-to xml="anthropodExerciseRequest" ns-uri="http://mathmuncher.co.za/ws/schemas/ex"/>
         <field name="type" type="za.co.mathmuncher.exercise.ExerciseType">
             <bind-xml name="type" node="attribute"/>
         </field>
     </class>
 
-    <class name="za.co.mathmuncher.exercise.ExerciseResponse">
-        <map-to xml="exerciseReponse" ns-uri="http://mathmuncher.co.za/ws/schemas/ex"/>
+    <class name="za.co.mathmuncher.exercise.WormExerciseRequest">
+        <map-to xml="wormExerciseRequest" ns-uri="http://mathmuncher.co.za/ws/schemas/ex"/>
+        <field name="type" type="za.co.mathmuncher.exercise.ExerciseType">
+            <bind-xml name="type" node="attribute"/>
+        </field>
+    </class>
+
+    <class name="za.co.mathmuncher.exercise.AnthropodExerciseResponse">
+        <map-to xml="anthropodExerciseReponse" ns-uri="http://mathmuncher.co.za/ws/schemas/ex"/>
         <field name="type" type="za.co.mathmuncher.exercise.ExerciseType">
             <bind-xml name="type" node="attribute"/>
         </field>
        <field name="anthropods" type="za.co.mathmuncher.exercise.Anthropod" collection="arraylist">
             <bind-xml name="anthropod" node="element"/>
+        </field>
+    </class>
+
+    <class name="za.co.mathmuncher.exercise.WormExerciseResponse">
+        <map-to xml="wormExerciseReponse" ns-uri="http://mathmuncher.co.za/ws/schemas/ex"/>
+        <field name="type" type="za.co.mathmuncher.exercise.ExerciseType">
+            <bind-xml name="type" node="attribute"/>
+        </field>
+        <field name="worms" type="za.co.mathmuncher.exercise.Worm" collection="arraylist">
+            <bind-xml name="worm" node="element"/>
         </field>
     </class>
 
@@ -25,6 +42,19 @@
         </field>
         <field name="legs" type="string">
             <bind-xml name="legs" node="attribute"/>
+        </field>
+        <field name="name" type="string">
+            <bind-xml name="name" node="attribute"/>
+        </field>
+    </class>
+
+    <class name="za.co.mathmuncher.exercise.Worm">
+        <map-to xml="worm" ns-uri="http://mathmuncher.co.za/ws/schemas/ex"/>
+        <field name="head" type="int">
+            <bind-xml name="head" node="attribute"/>
+        </field>
+        <field name="nodes" type="int" collection="array" >
+            <bind-xml name="nodes" node="attribute"/>
         </field>
         <field name="name" type="string">
             <bind-xml name="name" node="attribute"/>

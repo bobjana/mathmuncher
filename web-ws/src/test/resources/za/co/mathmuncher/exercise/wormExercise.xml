@@ -1,0 +1,6 @@
+<exerciseReponse xmlns="http://mathmuncher.co.za/ws/schemas/ex" type="MULTIPLICATION">
+    <worm name="A" head="2" nodes="2 3 4 5 6"/>
+    <worm name="B" head="3" nodes="2 1 5 9 6"/>
+    <worm name="C" head="4" nodes="2 1 5 9 6"/>
+    <worm name="D" head="5" nodes="2 1 5 9 6"/>
+</exerciseReponse>

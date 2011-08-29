@@ -23,19 +23,42 @@
         </simpleContent>
     </complexType>
 
-    <element name="exerciseResponse" tns:maxOccurs="1" tns:minOccurs="0">
+    <complexType name="wormType">
+        <simpleContent>
+            <extension base="string">
+                <attribute type="string" name="name" use="required"/>
+                <attribute type="int" name="head" use="required"/>
+                <attribute type="string" name="nodes" use="required"/>
+            </extension>
+        </simpleContent>
+    </complexType>
+
+    <element name="anthropodExerciseRequest" tns:maxOccurs="1" tns:minOccurs="0">
+        <complexType>
+            <attribute name="type" type="tns:exerciseType" use="required"/>
+        </complexType>
+    </element>
+
+    <element name="anthropodExerciseResponse" tns:maxOccurs="1" tns:minOccurs="0">
         <complexType>
             <sequence>
-                <element name="anthropod" type="tns:anthropodType" maxOccurs="unbounded" minOccurs="0">
-
-                </element>
+                <element name="anthropod" type="tns:anthropodType" maxOccurs="unbounded" minOccurs="0"/>
             </sequence>
             <attribute name="type" type="tns:exerciseType" use="required"/>
         </complexType>
     </element>
 
-    <element name="anthropodExerciseRequest" tns:maxOccurs="1" tns:minOccurs="1">
+    <element name="wormExerciseRequest" tns:maxOccurs="1" tns:minOccurs="0">
         <complexType>
+            <attribute name="type" type="tns:exerciseType" use="required"/>
+        </complexType>
+    </element>
+
+    <element name="wormExerciseResponse" tns:maxOccurs="1" tns:minOccurs="0">
+        <complexType>
+            <sequence>
+                <element name="worm" type="tns:wormType" maxOccurs="unbounded" minOccurs="0"/>
+            </sequence>
             <attribute name="type" type="tns:exerciseType" use="required"/>
         </complexType>
     </element>

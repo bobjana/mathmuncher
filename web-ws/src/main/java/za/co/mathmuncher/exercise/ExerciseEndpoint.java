@@ -16,9 +16,16 @@ public class ExerciseEndpoint {
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "anthropodExerciseRequest")
     public @ResponsePayload
-    ExerciseResponse handlAnthropodExerciseRequest(@RequestPayload ExerciseRequest anthropodExerciseRequest)
+    AnthropodExerciseResponse handleAnthropodExerciseRequest(@RequestPayload AnthropodExerciseRequest anthropodExerciseRequest)
         throws Exception {
         return exerciseService.generateAnthropodExercise(anthropodExerciseRequest.getType());
+    }
+
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "wormExerciseRequest")
+    public @ResponsePayload
+    WormExerciseResponse handleWormExerciseRequest(@RequestPayload WormExerciseRequest wormExerciseRequest)
+        throws Exception {
+        return exerciseService.generateWormExercise(wormExerciseRequest.getType());
     }
 
 }

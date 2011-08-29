@@ -1,7 +1,6 @@
 package za.co.mathmuncher.exercise.template;
 
 import za.co.mathmuncher.Entity;
-import za.co.mathmuncher.exercise.Type;
 
 import javax.persistence.*;
 import java.util.ArrayList;
